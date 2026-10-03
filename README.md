@@ -1,7 +1,7 @@
-# android-compat-kb
+# compat-kb
 
-What an Android code change can run into on other OS versions, device types and vendor ROMs — as data, each entry
-with the source it comes from.
+What a mobile code change can run into on other OS versions, device types and vendor ROMs — as data, each entry
+with the source it comes from. One file per platform: [`android.yaml`](android.yaml) today, iOS to follow.
 
 [mobile-dev-harness](https://github.com/mobile-dev-harness/mobile-dev-harness) reads it to turn a change into
 compatibility risks (`mdh compat risks`): a new `SDK_INT` branch, a call whose behavior changed in API 34, a raised
@@ -10,7 +10,7 @@ it too.
 
 ## What's in it
 
-[`android.yaml`](android.yaml) has three sections:
+`android.yaml` has three sections:
 
 | Section | An entry says | Example |
 |---|---|---|
@@ -35,8 +35,8 @@ Other fields: `id` (stable, kebab-case), `summary` (what goes wrong, one line), 
 Each release attaches `android.yaml` and its SHA-256:
 
 ```sh
-curl -LO https://github.com/mobile-dev-harness/android-compat-kb/releases/download/v1.0.0/android.yaml
-curl -L https://github.com/mobile-dev-harness/android-compat-kb/releases/download/v1.0.0/android.yaml.sha256 | sha256sum -c
+curl -LO https://github.com/mobile-dev-harness/compat-kb/releases/download/v1.0.0/android.yaml
+curl -L https://github.com/mobile-dev-harness/compat-kb/releases/download/v1.0.0/android.yaml.sha256 | sha256sum -c
 ```
 
 Pin a version: matching is by name, so an entry that changes can change what a tool reports. mdh vendors a pinned
